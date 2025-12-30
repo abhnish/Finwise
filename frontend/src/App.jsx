@@ -1,19 +1,21 @@
-import { useEffect, useState } from "react";
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Layout from './components/Layout';
+import Landing from './pages/Landing';
+import Dashboard from './pages/Dashboard';
+import Invoices from './pages/Invoices';
+import Transactions from './pages/Transactions';
 
 function App() {
-  const [msg, setMsg] = useState("");
-
-  useEffect(() => {
-    fetch("http://localhost:5000/")
-      .then(res => res.text())
-      .then(data => setMsg(data));
-  }, []);
-
   return (
-    <div style={{ padding: "20px" }}>
-      <h1>FinWise</h1>
-      <p>{msg}</p>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route path="/dashboard" element={<Layout><Dashboard /></Layout>} />
+        <Route path="/invoices" element={<Layout><Invoices /></Layout>} />
+        <Route path="/transactions" element={<Layout><Transactions /></Layout>} />
+      </Routes>
+    </Router>
   );
 }
 
