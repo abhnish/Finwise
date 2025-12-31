@@ -114,3 +114,15 @@ Analytics dashboard
 Multi-tenant support
 
 Role-based access control
+
+👨‍💻 Author
+
+Abhnish Kumar
+
+GitHub: https://github.com/abhnish
+
+Project: FinWise
+
+📄 License
+
+This project is for educational and demonstration purposes.
