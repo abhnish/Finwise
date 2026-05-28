@@ -1,128 +1,183 @@
-FinWise 💼
+# FinWise 💼
 
-Automated Invoice & Transaction Reconciliation Platform
+**Automated Invoice & Transaction Reconciliation Platform**
 
-FinWise is a full-stack SaaS application that automates invoice and bank transaction reconciliation. It allows users to upload invoice PDFs, manage transactions, and automatically match invoices with corresponding transactions, reducing manual accounting effort.
+FinWise is an enterprise-grade SaaS application that intelligently automates invoice and bank transaction reconciliation using advanced OCR and LLM-based parsing. It streamlines financial workflows by allowing users to upload receipts and bank statements, extracting structured data, and automatically matching transactions with a custom scoring engine.
 
-🔗 Live Demo
+---
 
-Frontend: https://finwise-jpbo4xuy6-abhnishs-projects.vercel.app/
+## 🔗 Live Demo
 
-Backend API: https://finwise-tu8p.onrender.com/
+- **Frontend Dashboard**: [finwise-jpbo4xuy6-abhnishs-projects.vercel.app](https://finwise-jpbo4xuy6-abhnishs-projects.vercel.app/)
+- **Backend API**: [finwise-tu8p.onrender.com](https://finwise-tu8p.onrender.com/)
 
- Features
+---
 
-Upload and parse invoice PDFs
+## ✨ Features
 
-Store and manage invoices & transactions
+- **Receipt & Document Processing**: Upload and process receipts and bank statements with intelligent file handling
+- **OCR-Powered Text Extraction**: Extract raw text from receipt images using advanced OCR technology
+- **LLM-Based Parsing**: Intelligent field extraction and normalization using large language models
+- **Custom Scoring Engine**: Proprietary matching algorithm that intelligently correlates receipts to bank transactions
+- **Structured Data Storage**: Persistent storage of receipts, transactions, and match results
+- **Real-Time Dashboard**: Interactive Next.js dashboard displaying matching status, confidence scores, and reconciliation summaries
+- **RESTful API**: Comprehensive API endpoints for programmatic access
+- **Cloud-Ready Architecture**: Fully deployed across cloud platforms with optimized performance
 
-Automated invoice–transaction matching
+---
 
-Matching status and summary dashboard
+## 🛠️ Tech Stack
 
-RESTful API architecture
+### Frontend
+- **Framework**: React (Vite)
+- **Styling**: Tailwind CSS
+- **HTTP Client**: Axios
+- **Routing**: React Router
+- **Deployment**: Vercel
 
-Fully deployed cloud application
+### Backend
+- **Runtime**: Node.js
+- **Framework**: Express.js
+- **Database**: PostgreSQL (structured data)
+- **File Storage**: Supabase Storage (receipt files)
+- **File Uploads**: Multer
+- **OCR**: OCR Library (raw text extraction)
+- **LLM Integration**: Custom LLM-based parsing pipeline
+- **Deployment**: Render
 
- Tech Stack
-1. Frontend
+### Key Architecture Components
+- **Receipt Processing Pipeline**: Handles document ingestion, OCR extraction, and LLM-based field parsing
+- **Matching Engine**: Custom scoring system for transaction-receipt correlation
+- **Data Layer**: PostgreSQL for normalized structured data with Supabase for file management
 
-2. React (Vite)
+---
 
-3. Tailwind CSS
+## 📁 Repository Structure
 
-4. Axios
-
-5. React Router
-
-6. Deployed on Vercel
-
-Backend
-
-1. Node.js
-
-2. Express.js
-
-3. MongoDB (Atlas)
-
-4. Mongoose
-
-5. Multer (file uploads)
-
-6. pdf-parse (PDF extraction)
-
-7. Deployed on Render
-
-Repository Structure
-
+```
 Finwise/
 ├── backend/
 │   ├── src/
-│   │   ├── controllers/
-│   │   ├── models/
-│   │   ├── routes/
-│   │   ├── app.js
-│   │   └── server.js
+│   │   ├── controllers/           # API request handlers
+│   │   ├── models/                # Database models (receipts, transactions, matches)
+│   │   ├── routes/                # API endpoint definitions
+│   │   ├── services/              # Business logic (OCR, LLM, matching engine)
+│   │   ├── app.js                 # Express app configuration
+│   │   └── server.js              # Server entry point
 │   ├── package.json
 │   └── .env (not committed)
 │
 ├── frontend/
 │   ├── src/
-│   │   ├── api/
-│   │   ├── components/
-│   │   ├── pages/
-│   │   ├── App.jsx
-│   │   └── main.jsx
+│   │   ├── api/                   # API client utilities
+│   │   ├── components/            # Reusable React components
+│   │   ├── pages/                 # Route pages
+│   │   ├── App.jsx                # Main app component
+│   │   └── main.jsx               # React entry point
 │   ├── package.json
 │   └── .env
 │
 └── README.md
+```
 
-Clone Repository 
+---
 
-git clone https://github.com/abhnish/Finwise.git
-cd Finwise
+## 🚀 Getting Started
 
-cd backend
-npm install
+### Prerequisites
+- Node.js (v16+)
+- PostgreSQL
+- Supabase account (for file storage)
+- Environment variables configured
 
-cd ../frontend
-npm install
+### Installation
 
-Design Decisions
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/abhnish/Finwise.git
+   cd Finwise
+   ```
 
-Stateless backend for scalability
+2. **Backend Setup**
+   ```bash
+   cd backend
+   npm install
+   # Configure .env with database and Supabase credentials
+   npm start
+   ```
 
-Environment-based configuration
+3. **Frontend Setup**
+   ```bash
+   cd ../frontend
+   npm install
+   npm run dev
+   ```
 
-Clear separation of frontend and backend
+---
 
-Simple matching logic for MVP (can be enhanced later)
+## 🏗️ System Architecture
 
-Focus on production stability over experimental features
+### Receipt Processing Pipeline
+1. **File Upload**: Users upload receipt images or PDF documents
+2. **OCR Extraction**: Optical Character Recognition extracts raw text from documents
+3. **LLM Parsing**: Large Language Model intelligently normalizes and extracts structured fields:
+   - Vendor name
+   - Amount
+   - Date
+   - Category
+   - Additional metadata
+4. **Data Persistence**: Structured data stored in PostgreSQL, files archived in Supabase Storage
 
- Future Enhancements
+### Transaction Matching Engine
+- **Scoring Algorithm**: Custom scoring system evaluates receipt-transaction pairs across:
+  - Amount matching (fuzzy tolerance)
+  - Date proximity
+  - Vendor name similarity
+  - Category alignment
+- **Confidence Metrics**: Each match includes confidence score for user review
+- **Results**: Matches surfaced in real-time dashboard with detailed reconciliation view
 
-Authentication & user accounts
+---
 
-Advanced AI/ML matching logic
+## 🎯 Design Decisions
 
-OCR-based invoice extraction
+- **Stateless Backend**: Horizontal scalability and simplified deployment
+- **Environment-Based Configuration**: Flexible deployment across environments
+- **Clear Separation of Concerns**: Distinct frontend/backend/storage layers
+- **Advanced Matching Logic**: ML-powered scoring vs. simple rule-based MVP approach
+- **Production Stability**: Focus on reliability, error handling, and data integrity
+- **Database Choice**: PostgreSQL for ACID compliance and complex queries; Supabase for scalable file storage
 
-Analytics dashboard
+---
 
-Multi-tenant support
+## 📊 Future Enhancements
 
-Role-based access control
+- **User Authentication**: Multi-user accounts with role-based access control
+- **Advanced Analytics**: Spending patterns, vendor tracking, budget analytics
+- **Enhanced OCR**: Support for invoices in multiple languages
+- **ML Model Optimization**: Continuous learning from user corrections
+- **Multi-Tenant Support**: Complete SaaS platform capabilities
+- **API Rate Limiting**: Quota management for API consumers
+- **Webhook Integrations**: Real-time notifications and third-party integrations
+- **Audit Logging**: Complete transaction audit trails
 
-👨‍💻 Author
+---
 
-Abhnish Kumar
+## 👨‍💻 Author
 
-GitHub: https://github.com/abhnish
+**Abhnish Kumar**
 
-Project: FinWise
+- GitHub: [@abhnish](https://github.com/abhnish)
+- Project: [FinWise](https://github.com/abhnish/Finwise)
 
-📄 License
+---
+
+## 📄 License
 
 This project is for educational and demonstration purposes.
+
+---
+
+## 📞 Support
+
+For issues, questions, or contributions, please open an issue on the [GitHub repository](https://github.com/abhnish/Finwise/issues).
