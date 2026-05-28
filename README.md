@@ -6,13 +6,6 @@ FinWise is an enterprise-grade SaaS application that intelligently automates inv
 
 ---
 
-## 🔗 Live Demo
-
-- **Frontend Dashboard**: [finwise-jpbo4xuy6-abhnishs-projects.vercel.app](https://finwise-jpbo4xuy6-abhnishs-projects.vercel.app/)
-- **Backend API**: [finwise-tu8p.onrender.com](https://finwise-tu8p.onrender.com/)
-
----
-
 ## ✨ Features
 
 - **Receipt & Document Processing**: Upload and process receipts and bank statements with intelligent file handling
@@ -22,7 +15,6 @@ FinWise is an enterprise-grade SaaS application that intelligently automates inv
 - **Structured Data Storage**: Persistent storage of receipts, transactions, and match results
 - **Real-Time Dashboard**: Interactive Next.js dashboard displaying matching status, confidence scores, and reconciliation summaries
 - **RESTful API**: Comprehensive API endpoints for programmatic access
-- **Cloud-Ready Architecture**: Fully deployed across cloud platforms with optimized performance
 
 ---
 
