@@ -25,7 +25,6 @@ FinWise is an enterprise-grade SaaS application that intelligently automates inv
 - **Styling**: Tailwind CSS
 - **HTTP Client**: Axios
 - **Routing**: React Router
-- **Deployment**: Vercel
 
 ### Backend
 - **Runtime**: Node.js
@@ -35,7 +34,6 @@ FinWise is an enterprise-grade SaaS application that intelligently automates inv
 - **File Uploads**: Multer
 - **OCR**: OCR Library (raw text extraction)
 - **LLM Integration**: Custom LLM-based parsing pipeline
-- **Deployment**: Render
 
 ### Key Architecture Components
 - **Receipt Processing Pipeline**: Handles document ingestion, OCR extraction, and LLM-based field parsing
