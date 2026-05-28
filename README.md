@@ -1,4 +1,4 @@
-# FinWise 💼
+# FinWise 
 
 **Automated Invoice & Transaction Reconciliation Platform**
 
