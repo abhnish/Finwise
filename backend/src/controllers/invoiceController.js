@@ -10,6 +10,10 @@ exports.createInvoice = async (req, res) => {
 };
 
 exports.getInvoices = async (req, res) => {
-  const invoices = await Invoice.find();
-  res.json(invoices);
+  try {
+    const invoices = await Invoice.find();
+    res.json(invoices);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
 };
